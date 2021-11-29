@@ -6,7 +6,7 @@ body::before {
 .container {
    width: 100%;
    min-height: 200px;
-display:block;
+
 }
   #map {
     width: 100%;
