@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>I Think Net</title>
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+      <div class="container" >
+        <a href="" class="navbar-brand" id="" >I Think Net</a>
+        <a class="navbar-brand" href="#">
+          <img src="data:image/png;base64,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" width="30" height="30" alt="">
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#produk" class="nav-link">Produk</a>
+            </li>
+            <li class="nav-item">
+              <a href="#footer" class="nav-link">Lokasi</a>
+            </li>
+            <li class="nav-item">
+              <a href="#abot" class="nav-link">Tentang Kami</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Showcase -->
+    <section
+      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+    >
+      <div class="container" >
+        <div class="d-sm-flex align-items-center justify-content-between" id="produk">
+          <div>
+            <h1 class="text-light" >internet Cafe di <span class="text-info">I Think Net aja </span></h1>
+            <p class="lead my-4">
+              I Think Net adalah sebuah internet cafe menengah yang menyediakan komputer dengan spek tinggi, internet kencang, dan caffe yang bagus. 
+            </p>
+
+        </div>
+      </div>
+    </section>
+
+ 
+    <!-- Boxes -->
+    <section class="p-5 bg-info">
+      <div class="container ">
+        <div class="row text-center g-4">
+          <div class="col-md">
+            <div class="card bg-dark text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-laptop"></i>
+                </div>
+                <h3 class="card-title mb-3">Ngewarnet</h3>
+                <p class="card-text">
+                 Komputer dengan spek tinggi, internet kencang dan software game yang lengkap dengan selera pasar saat ini.
+                </p>
+                <a href="#Ngewarnet" class="btn btn-info">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-dark text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-person-square"></i>
+                </div>
+                <h3 class="card-title mb-3">Jadi Member</h3>
+                <p class="card-text">
+                  Jadi member membuat harga paket ngewawrnet jadi lebih hemat dan lebih untungnya lagi bisa menyimpan waktu
+                </p>
+                <a href="#member" class="btn btn-info">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-dark text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-people"></i>
+                </div>
+                <h3 class="card-title mb-3">Harga Bersahabat</h3>
+                <p class="card-text">
+                  Aman di kantong sesuai dah sama feedbacknya.
+                </p>
+                <a href="#amankantong" class="btn btn-info">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn Sections -->
+    <section id="Ngewarnet" class="p-5 bg-success text-light" >
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md">
+            <img src="img/fundamentals.svg" class="img-fluid" alt="" />
+          </div>
+          <div class="col-md p-5">
+           
+            <h2>Ngewarnet</h2>
+            <image src="https://cdn.idntimes.com/content-images/post/20200924/pc-gaming-battlestation-14-7bd13c5114f9ccc8e51897f5f2b3508f_600x400.jpg"></image>
+            <p class="lead">
+              Ngewarnet dengan nyaman dan tenang
+            </p>
+            <p>
+           dilengkapi dengan kecepatan internet yang stabil dan kencang, Spek Pc Yang gahar
+            </p>
+            <h1 align="center">
+              MINIMAL AND MAXIMAL REQUIMENT MOBILE</h1>
+          <table cellpadding="30" border="4" class="table table-bordered table-striped table-hover table-dark">
+            <thead>
+              <tr>
+                  <td>SPESIFIKASI</td>
+                  <td>MINIMAL</td>
+                  <td>SPESIFIKASI</td>
+                  <td>MAX</td>
+              </tr>
+          </thead>
+          <tbody
+              <tr>
+                  <td>CPU</td>
+                  <td>Intel Core i5 gen4 equivalent or higher</td>
+                  <td>CPU</td>
+                  <td>	Intel Core i7 (equivalent) or higher</td>
+              </tr>
+              <tr>
+                  <td>GPU</td>
+                  <td>2048 MB VRAM</td>
+                  <td>GPU</td>
+                  <td>Nvidia GeForce 1060 6GB or higher </td>
+              </tr>
+              <tr>
+                  <td>MEMORY</td>
+                  <td>8 GB</td>
+                  <td>MEMORY</td>
+                  <td>16 GB</td>
+              </tr>
+              <tr>
+                  <td>OS</td>
+                  <td>Windows 7 SP1 64-bit, Windows 8.1 64-bit or Windows 10 64-bit with Direct X 11</td>
+                  <td>OS</td>
+                  <td>Windows 7, 8, 8.1, 19 (64 bit only) with Direct X 	11</td>
+              </tr>
+
+          </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="member" class="p-5 bg-dark text-light">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md p-5">
+            
+            <h2>Member</h2>
+            <img src="https://1.bp.blogspot.com/-VoDCauSDovM/VjdPyJ4DQLI/AAAAAAAAAK0/wx-F2mJQv2c/s1600/5.png" class="img-fluid" alt="" />
+            <p class="lead">
+              Berlangganan jadi Lebih Menguntungkan
+            </p>
+            
+            <p>
+              Harga jadi diskon 20% dari semua Paket
+            </p>
+
+          </div>
+          <div class="col-md">
+            <img src="img/react.svg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="amankantong" class="p-5 bg-warning text-light" >
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md">
+            <img src="img/fundamentals.svg" class="img-fluid" alt="" />
+          </div>
+          <div class="col-md p-5">
+            <h2>Cuan Cuan Cuan</h2>
+            
+            <table cellpadding="30" border="4" class="table table-bordered table-striped table-hover table-dark">
+              <thead>
+                <tr>
+                    <td>Penawaran</td>
+                    <td>Normal</td>
+  
+                </tr>
+            </thead>
+            <tbody
+                <tr>
+                    <td>diskon 20% jika mengambil 3 paket sekaligus</td>
+                    <td>tidak ada diskon jika ambil 1 atau 2 paket sekaligus</td>
+
+                </tr>
+          </tbody>
+        </table>
+            <p class="lead">
+              Biar Hemat ambil 3 paket sekaligus
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+     
+    <!-- Contact & Map -->
+    <section class="p-5" id ="footer">
+    
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md">
+            <h2 class="text-center mb-4">Contact Info</h2>
+            <ul class="list-group list-group-flush lead">
+              <li class="list-group-item">
+                <span class="fw-bold">Lokasi:</span> Jl. Damar No.8, Simalingkar A
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Phone:</span> 0854-xxxx-xxxx
+              </li>
+
+              <li class="list-group-item">
+                <span class="fw-bold">Buka  :</span> 08.00-23.00
+              <li class="list-group-item">
+                <span class="fw-bold">Email:</span>
+                IthinK.net@Gmail.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <div id="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d591.9760071408161!2d98.62632154166714!3d3.512324734268237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031250fddbf2047%3A0xbb8d6437e6b6bcb1!2sI%20Think%20Net!5e0!3m2!1sen!2sid!4v1638182326263!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+    <footer class="site-footer" id="abot">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">Ithink Net adalah  <i>Tempat internet Cafe </i> yang menengah yang menyediakan komputer dengan spek tinggi, internet kencang, dan caffe yang bagus.   Dimulai dari 2014 sampai bertahan 2021</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="">Warnet</a></li>
+              <li><a href="">Internet Cafe</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
+         <a href="#"></a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+   
+  </body>
+</html>
