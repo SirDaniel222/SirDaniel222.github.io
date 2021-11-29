@@ -3,7 +3,7 @@ body::before {
     content: '';
     height: 60px;
   }
-  .container {
+.container {
    width: 100%;
    min-height: 200px;
 }
