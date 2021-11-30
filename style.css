@@ -19,32 +19,7 @@ body::before {
     border-radius: 10px;
   }
   
-  @media (min-width: 768px) {
-    .news-input {
-      width: 50%;
-    }
-  }
-  html {
-    font-size: 1rem;
-  }
-  
-  @include media-breakpoint-up(sm) {
-    html {
-      font-size: 1.2rem;
-    }
-  }
-  
-  @include media-breakpoint-up(md) {
-    html {
-      font-size: 1.4rem;
-    }
-  }
-  
-  @include media-breakpoint-up(lg) {
-    html {
-      font-size: 1.6rem;
-    }
-  }
+ 
   .site-footer
 {
   background-color:#26272b;
