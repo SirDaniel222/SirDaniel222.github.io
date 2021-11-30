@@ -2,6 +2,38 @@
     margin-left: 100%;
     margin-right: 100%;
 }
+ @media (min-width: 768px) {
+    .news-input {
+      width: 50%;
+    }
+  }
+  html {
+    font-size: 1rem;
+  }
+  
+  @include media-breakpoint-up(sm) {
+    html {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @include media-breakpoint-up(md) {
+    html {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @include media-breakpoint-up(lg) {
+    html {
+      font-size: 1.6rem;
+    }
+  }
+
+
+
+body::before {
+    display: block;
+    content: '';
 
 @viewport{
     zoom : 1.0;
