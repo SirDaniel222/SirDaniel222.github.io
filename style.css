@@ -4,11 +4,29 @@ body::before {
     height: 60px;
   }
 
-.Container-fluid {
-    width: 100%;
-   min-height: 200px;
-}
 
+@media screen and (min-width: 450px) {
+   .container-fluid {
+       width: 100%
+   }
+}
+ 
+/*untuk layar device berukuran sedang*/
+@media screen and (min-width: 550px) {
+   container-fluid{
+       width: 100%;
+   }
+ 
+}
+ 
+/*untuk layar device berukuran besar*/
+@media screen and (min-width: 800px) {
+   container-fluidr {
+       width: 800px;
+       margin-left: auto;
+       margin-right: auto;
+   }
+}
 
   #map {
     width: 100%;
@@ -18,7 +36,7 @@ body::before {
   
   @media (min-width: 768px) {
     .news-input {
-      width: 50%;
+      width: 100%;
     }
   }
   html {
