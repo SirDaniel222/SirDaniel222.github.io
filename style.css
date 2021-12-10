@@ -4,10 +4,14 @@ body::before {
     height: 60px;
   }
 
+.container-fluid{
+    display: inline-block;
+ width: 100%;
+}
 
 @media screen and (min-width: 450px) {
    .container-fluid {
-       display: block;
+       display: inline-block;
        width: 100%
    }
 }
@@ -15,7 +19,7 @@ body::before {
 /*untuk layar device berukuran sedang*/
 @media screen and (min-width: 550px) {
    container-fluid{
-       display: block;
+       display: inline-block;
        width: 100%;
    }
  
@@ -24,7 +28,7 @@ body::before {
 /*untuk layar device berukuran besar*/
 @media screen and (min-width: 800px) {
    container-fluidr {
-       display: block;
+       display: inline-block;
        width: 800px;
        margin-left: auto;
        margin-right: auto;
